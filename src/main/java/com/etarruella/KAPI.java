@@ -6,6 +6,7 @@ import org.bukkit.entity.LivingEntity;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.event.entity.EntityRegainHealthEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class KAPI extends JavaPlugin implements Listener {
@@ -19,7 +20,16 @@ public class KAPI extends JavaPlugin implements Listener {
         if (event.getEntityType() == EntityType.PLAYER) {
             LivingEntity entity = (LivingEntity) event.getEntity();
             double newLife = Math.max(entity.getHealth() - event.getDamage(), 0);
-            // newLife send to network server
+            entity.sendMessage("Vida -: " + newLife);
+        }
+    }
+
+    @EventHandler
+    public void onEntityRegainHealthEvent(EntityRegainHealthEvent event) {
+        if (event.getEntityType() == EntityType.PLAYER) {
+            LivingEntity entity = (LivingEntity) event.getEntity();
+            double newLife = Math.min(entity.getHealth() + event.getAmount(), entity.getMaxHealth());
+            entity.sendMessage("Vida +: " + newLife);
         }
     }
 
