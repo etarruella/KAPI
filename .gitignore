@@ -1,0 +1,42 @@
+# Gradle build files
+.gradle/
+build/
+out/
+
+# IntelliJ IDEA files
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Eclipse files
+.project
+.classpath
+.settings/
+
+# VS Code files
+.vscode/
+
+# Logs
+logs/
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Run directories (pueden generarse con run-paper)
+run/
+
+# Generated jar files
+*.jar
+*.war
+*.ear
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+
+# Maven Wrapper files (si no usas, puedes eliminar)
+.mvn/
