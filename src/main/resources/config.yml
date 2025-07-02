@@ -1,13 +1,68 @@
 network:
-  enabled: true
-  host: "127.0.0.1"
-  port: 8765
+  enabled: true                # Activa o desactiva el servidor de eventos
+  host: "127.0.0.1"            # Dirección IP donde se escucha el servidor
+  port: 8765                   # Puerto de escucha para conexiones externas
+  protocol: "websocket"        # Tipo de protocolo: websocket, tcp, etc.
+  maxConnections: 100          # Máximo número de clientes concurrentes
+  timeoutSeconds: 30           # Timeout para desconectar clientes inactivos
+  heartbeatIntervalMs: 10000   # Intervalo para mensajes heartbeat / keep-alive
 
 logging:
-  level: "INFO"
+  level: "INFO"                # Nivel de logging: DEBUG, INFO, WARN, ERROR
+  file: "logs/plugin.log"      # Ruta del archivo de log (opcional)
+  consoleOutput: true          # Mostrar logs en consola
 
 filters:
-  allowedAttributes:
-    - health
-    - position
-    - saturation
+  # Enable or disable tracking of player-related attributes
+  playerAttributes:
+    enabled: true             # Set to false to disable all player attribute tracking
+    attributes:
+      - health               # Current player health
+      - maxHealth            # Maximum possible health
+      - position             # XYZ coordinates and world info
+      - saturation           # Food saturation level
+      - foodLevel            # Hunger bar level
+      - potionEffects        # Active potion effects on player
+      - armor                # Armor points or armor items equipped
+      - experience           # Experience points or levels
+      - gameMode             # Current game mode (survival, creative, etc.)
+      - level                # Player level
+      - isFlying             # Whether player is flying
+      - velocity             # Player movement velocity vector
+      - isSneaking           # Sneaking/crouching state
+      - isSprinting          # Sprinting state
+      - exhaustion           # Exhaustion level (related to food)
+      - air                  # Remaining air (underwater breathing)
+      - fireTicks            # Time player is on fire
+      - isOnGround           # Whether player is touching the ground
+      - openInventory        # Currently open inventory type (if any)
+      - itemInHand           # Item currently held
+      - activeSlot           # Hotbar active slot index
+      - currentXPProgress    # Progress towards next XP level
+      - hungerSaturation     # Current saturation level (different from saturation?)
+      - playerPing           # Network latency (ping) of player
+      - sleeping             # Sleeping status
+      - compassTarget        # Position the player's compass points to
+
+  # Enable or disable tracking of server-wide attributes
+  serverAttributes:
+    enabled: true             # Set to false to disable all server attribute tracking
+    attributes:
+      - onlinePlayersCount   # Number of currently online players
+      - maxPlayers           # Server max player slots
+      - tps                  # Current server ticks per second
+      - difficulty           # Server difficulty setting
+      - worldTime            # Current world time (day/night cycle)
+      - weather              # Current weather conditions
+      - whitelistEnabled     # Whether whitelist is active
+      - serverVersion        # Minecraft server version
+      - motd                 # Message of the day (server description)
+      - isPvpEnabled         # Whether PvP is enabled
+
+  # Enable or disable tracking of network/connection-related attributes
+  networkAttributes:
+    enabled: true             # Set to false to disable all network attribute tracking
+    attributes:
+      - connectedClients     # Number of connected external clients (OBS, dashboards)
+      - maxConnections       # Maximum allowed external clients
+      - lastHeartbeat        # Timestamp of last heartbeat message
