@@ -19,6 +19,7 @@ public class KAPI extends JavaPlugin implements Listener {
         if (event.getEntityType() == EntityType.PLAYER) {
             LivingEntity entity = (LivingEntity) event.getEntity();
             double newLife = Math.max(entity.getHealth() - event.getDamage(), 0);
+            // newLife send to network server
         }
     }
 
