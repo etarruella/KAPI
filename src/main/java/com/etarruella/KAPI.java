@@ -1,10 +1,11 @@
 package com.etarruella;
 
-import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
+import org.bukkit.entity.EntityType;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class KAPI extends JavaPlugin implements Listener {
@@ -14,7 +15,11 @@ public class KAPI extends JavaPlugin implements Listener {
     }
 
     @EventHandler
-    public void onPlayerJoin(PlayerJoinEvent event) {
-        event.getPlayer().sendMessage(Component.text("Hello, " + event.getPlayer().getName() + "!"));
+    public void onEntityDamageEvent(EntityDamageEvent event) {
+        if (event.getEntityType() == EntityType.PLAYER) {
+            LivingEntity entity = (LivingEntity) event.getEntity();
+            double newLife = Math.max(entity.getHealth() - event.getDamage(), 0);
+        }
     }
+
 }
