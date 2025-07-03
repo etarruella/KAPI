@@ -43,4 +43,8 @@ public class WebSocketServerManager {
         return executor;
     }
 
+    public Logger getLogger() {
+        return logger;
+    }
+
 }
