@@ -18,6 +18,15 @@ repositories {
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21.7-R0.1-SNAPSHOT")
+
+    implementation("org.java-websocket:Java-WebSocket:1.5.3")
+
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.15.2")
+    implementation("com.fasterxml.jackson.core:jackson-core:2.15.2")
+    implementation("com.fasterxml.jackson.core:jackson-annotations:2.15.2")
+
+    implementation("org.slf4j:slf4j-api:2.0.7")
+    implementation("ch.qos.logback:logback-classic:1.4.11")
 }
 
 java {
@@ -29,9 +38,6 @@ tasks {
         archiveClassifier.set("")
     }
     runServer {
-        // Configure the Minecraft version for our task.
-        // This is the only required configuration besides applying the plugin.
-        // Your plugin's jar (or shadowJar if present) will be used automatically.
         minecraftVersion("1.21.5")
         runDirectory(File("run/1.21.5"))
         jvmArgs(listOf("-Xms512M", "-Xmx1G", "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005"))
