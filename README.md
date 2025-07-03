@@ -48,6 +48,13 @@ Feel free to open issues or PRs! Let’s make Minecraft integrations smoother to
 
 MIT License — see `LICENSE` file for details 📜
 
-Enjoy coding and streaming! 🎉🎮✨
+## 👥 Credits
 
-If you want me to tailor it with your GitHub repo links, usage examples, or more detailed docs, just ask!
+- 💡 **Main idea**: 
+   - Erik T. Segura
+   - Víctor De Lomas
+   - Pol Prat
+- 🔧 **Backend development**: 
+   - Erik T. Segura
+   - Víctor De Lomas
+
