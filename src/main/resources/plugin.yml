@@ -2,7 +2,7 @@ name: KAPI
 version: 1.0.0
 main: com.etarruella.KAPI
 api-version: 1.20
-author: Erik T. Segura
+author: Erik T. Segura, Víctor De Lomas, Pol Prat
 description: Plugin that exposes player data in real time via WebSocket for overlays and statistics.
 
 commands: {}
