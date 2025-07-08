@@ -9,7 +9,7 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityRegainHealthEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class KAPI extends JavaPlugin implements Listener {
+public class KAPI extends JavaPlugin {
 
     @Override
     public void onEnable() {
