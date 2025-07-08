@@ -21,9 +21,11 @@ public class WebSocketServerManager {
     }
 
     public void start() {
-        server = new GameEventWebSocketServer(new InetSocketAddress(port), this);
-        server.start();
-        logger.info("WebSocket server started on port " + port);
+        executor.execute(() -> {
+            server = new GameEventWebSocketServer(new InetSocketAddress(port), this);
+            server.start();
+            logger.info("WebSocket server started on port " + port);
+        });
     }
 
     public void stop() {
