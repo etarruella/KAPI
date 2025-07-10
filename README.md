@@ -6,6 +6,9 @@ A **K**-powered **API** for Minecraft servers — real-time player data streamin
 
 KAPI is a lightweight and efficient Minecraft plugin + bridge system that allows real-time tracking of player attributes like health, position, potion effects, and more — all sent via asynchronous event subscriptions. Perfect for dynamic overlays in OBS Studio 🎥 for tournaments or streaming! 🎉
 
+> [!WARNING]
+> This plugin is currently in early development and does not yet have a stable release. Use with caution.
+
 ## ⚙️ Features
 
 * Real-time player stats updates 💨
@@ -51,10 +54,10 @@ MIT License — see `LICENSE` file for details 📜
 ## 👥 Credits
 
 - 💡 **Main idea**: 
-   - Erik T. Segura
+   - Erik Tarruella
    - Víctor De Lomas
    - Pol Prat
 - 🔧 **Backend development**: 
-   - Erik T. Segura
+   - Erik Tarruella
    - Víctor De Lomas
 
