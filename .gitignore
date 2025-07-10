@@ -1,42 +1,36 @@
-# Gradle build files
+# Gradle build output
+/build/
 .gradle/
-build/
-out/
 
-# IntelliJ IDEA files
+# IntelliJ / Android Studio
 .idea/
 *.iml
-*.iws
 *.ipr
+*.iws
 
-# Eclipse files
-.project
-.classpath
-.settings/
-
-# VS Code files
+# VS Code
 .vscode/
 
 # Logs
-logs/
 *.log
 
-# OS generated files
+# OS-specific files
 .DS_Store
 Thumbs.db
 
-# Run directories (pueden generarse con run-paper)
+# Java
+*.class
+
+# Generated run directory (por runServer task)
 run/
 
-# Generated jar files
-*.jar
-*.war
-*.ear
+# Avoid ignoring Gradle Wrapper
+!gradlew
+!gradlew.bat
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
 
-# Temporary files
-*.tmp
-*.bak
-*.swp
-
-# Maven Wrapper files (si no usas, puedes eliminar)
-.mvn/
+# Optional: Eclipse
+.project
+.classpath
+.settings/
