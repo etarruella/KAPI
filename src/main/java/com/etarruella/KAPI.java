@@ -1,37 +1,31 @@
 package com.etarruella;
 
-import org.bukkit.Bukkit;
-import org.bukkit.entity.EntityType;
-import org.bukkit.entity.LivingEntity;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
-import org.bukkit.event.entity.EntityDamageEvent;
-import org.bukkit.event.entity.EntityRegainHealthEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import config.ConfigManager;
-import network.GameEventWebSocketServer;
-import network.WebSocketServerManager;
+import com.etarruella.config.ConfigManager;
+import com.etarruella.network.GameEventWebSocketServer;
+import com.etarruella.network.WebSocketServerManager;
+
+import java.net.InetSocketAddress;
+import java.util.logging.Logger;
 
 public class KAPI extends JavaPlugin {
 
-    private ConfigManager configManager;
-    private WebSocketServerManager webSocketServerManager;
-    private GameEventWebSocketServer gameEventWebSocketServer;
+    private final Logger LOGGER =  Logger.getLogger("KAPI");
 
     @Override
     public void onEnable() {
         // Load config
-        configManager = new ConfigManager(this);
+        ConfigManager configManager = new ConfigManager(this);
+        configManager.loadConfig();
 
         // Load WebSocketServer
-        webSocketServerManager = new WebSocketServerManager(
-                configManager.getNetworkHost,
-                configManager.getNetworkPort());
+        WebSocketServerManager webSocketServerManager = new WebSocketServerManager(configManager.getNetworkPort(), LOGGER);
+        webSocketServerManager.start();
 
         // Load GameEventWebSocketServer
-        gameEventWebSocketServer = new GameEventWebSocketServer(
-                configManager.getNetworkHost(),
+        GameEventWebSocketServer gameEventWebSocketServer = new GameEventWebSocketServer(
+                InetSocketAddress.createUnresolved(configManager.getNetworkHost(), configManager.getNetworkPort()),
                 webSocketServerManager);
     }
 
