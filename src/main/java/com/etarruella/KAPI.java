@@ -13,6 +13,8 @@ public class KAPI extends JavaPlugin {
 
     private final Logger LOGGER =  Logger.getLogger("KAPI");
 
+    private WebSocketServerManager webSocketServerManager;
+
     @Override
     public void onEnable() {
         // Load config
@@ -20,13 +22,18 @@ public class KAPI extends JavaPlugin {
         configManager.loadConfig();
 
         // Load WebSocketServer
-        WebSocketServerManager webSocketServerManager = new WebSocketServerManager(configManager.getNetworkPort(), LOGGER);
+        webSocketServerManager = new WebSocketServerManager(configManager.getNetworkPort(), LOGGER);
         webSocketServerManager.start();
 
         // Load GameEventWebSocketServer
         GameEventWebSocketServer gameEventWebSocketServer = new GameEventWebSocketServer(
                 InetSocketAddress.createUnresolved(configManager.getNetworkHost(), configManager.getNetworkPort()),
                 webSocketServerManager);
+    }
+
+    @Override
+    public void onDisable() {
+        webSocketServerManager.stop();
     }
 
 }
