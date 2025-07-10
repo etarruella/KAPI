@@ -49,7 +49,7 @@ Feel free to open issues or PRs! Let’s make Minecraft integrations smoother to
 
 ## 📄 License
 
-MIT License — see `LICENSE` file for details 📜
+The Unlicense — see `LICENSE` file for details 📜
 
 ## 👥 Credits
 
