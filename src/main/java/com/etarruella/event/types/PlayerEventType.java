@@ -1,4 +1,4 @@
-package com.etarruella.event;
+package com.etarruella.event.types;
 
 public enum PlayerEventType {
     PlayerHealthChangeEvent,
