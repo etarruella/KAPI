@@ -14,6 +14,7 @@ public class GameEventWebSocketServer extends WebSocketServer {
 
     private final Set<WebSocket> connections = Collections.synchronizedSet(new HashSet<>());
     private final WebSocketServerManager manager;
+    private final SubscriptionManager subscriptionManager = new SubscriptionManager();
     private final Logger logger;
 
     public GameEventWebSocketServer(InetSocketAddress address, WebSocketServerManager manager) {
@@ -39,9 +40,9 @@ public class GameEventWebSocketServer extends WebSocketServer {
     @Override
     public void onMessage(WebSocket conn, String message) {
         logger.info("Message from " + conn.getRemoteSocketAddress() + ": " + message);
-        // Procesa mensaje JSON para subscribe/unsubscribe
-        // manager.handleClientMessage(conn, message);
+        subscriptionManager.handleClientMessage(conn, message);
     }
+
 
     @Override
     public void onError(WebSocket conn, Exception ex) {
