@@ -1,0 +1,5 @@
+Minecraft Event --> EventListener --> Payload --> EventDispatcher
+                                       ↓
+                                 SubscriptionManager
+                                       ↓
+                             WebSocket.send(payload)
