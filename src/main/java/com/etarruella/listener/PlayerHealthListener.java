@@ -54,12 +54,15 @@ public class PlayerHealthListener implements Listener {
 
         PlayerHealthChangePayload payload = new PlayerHealthChangePayload(
                 "PlayerHealthChangeEvent", 
-                event.getPlayer().getUniqueId(), 
+                event.getPlayer().getUniqueId(),
                 event.getOldHealth(), 
                 event.getNewHealth()
             );
 
-        KAPI.getPlugin().getEventDispatcher().dispatch("PlayerHealthChangeEvent", payload);
+        KAPI.getPlugin().getGameEventWebSocketServer().getEventDispatcher().dispatch(
+                "PlayerHealthChangeEvent",
+                payload
+            );
     }
     
 }
