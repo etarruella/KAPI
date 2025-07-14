@@ -11,14 +11,23 @@ import java.util.logging.Logger;
 
 public class KAPI extends JavaPlugin {
 
+    private final static Plugin KAPI;
+
     private final Logger LOGGER =  Logger.getLogger("KAPI");
 
     private ConfigManager configManager;
     private WebSocketServerManager webSocketServerManager;
     private GameEventWebSocketServer gameEventWebSocketServer;
 
+    public static Plugin getPlugin() {
+        return KAPI;
+    }
+
     @Override
     public void onEnable() {
+        // Plugin init
+        KAPI = this;
+
         // Load config
         configManager = new ConfigManager(this);
         configManager.loadConfig();
