@@ -47,6 +47,11 @@ public class PlayerHealthListener implements Listener {
         String sign = change > 0 ? "+" : "";
         player.sendMessage("Vida " + sign + ": " + event.getNewHealth());
 
-        // TODO: Implementar lógica de envío por WebSocket
+        /* TODO: Implementar lógica de envío por WebSocket
+         * 
+         * 1. Create the event payload
+         * 2. Then, call event dispatcher, send the payload
+         */
+
     }
 }
