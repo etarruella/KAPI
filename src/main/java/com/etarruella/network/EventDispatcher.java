@@ -4,8 +4,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.java_websocket.WebSocket;
 
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class EventDispatcher {
+
+    private static final Logger logger = Logger.getLogger(EventDispatcher.class.getName());
 
     private final SubscriptionManager subscriptionManager;
     private final ObjectMapper mapper = new ObjectMapper();
@@ -19,12 +23,18 @@ public class EventDispatcher {
             String json = mapper.writeValueAsString(payload);
             Set<WebSocket> clients = subscriptionManager.getSubscribers(topic);
 
+            if (clients == null || clients.isEmpty()) {
+                logger.info("No subscribers for topic: " + topic);
+                return;
+            }
+
             for (WebSocket client : clients) {
                 client.send(json);
+                logger.info("Sent event to client " + client.getRemoteSocketAddress());
             }
 
         } catch (Exception e) {
-            System.err.println("Error dispatching event to clients: " + e.getMessage());
+            logger.log(Level.SEVERE, "Error dispatching event for topic '" + topic + "'", e);
         }
     }
 }
