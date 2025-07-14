@@ -1,5 +1,7 @@
 package com.etarruella;
 
+import com.etarruella.listener.PlayerHealthListener;
+import com.etarruella.listener.PlayerPositionListener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.etarruella.config.ConfigManager;
@@ -31,6 +33,10 @@ public class KAPI extends JavaPlugin {
         // Load config
         configManager = new ConfigManager(this);
         configManager.loadConfig();
+
+        // Register listeners
+        getServer().getPluginManager().registerEvents(new PlayerHealthListener(), this);
+        getServer().getPluginManager().registerEvents(new PlayerPositionListener(), this);
 
         // Load WebSocketServer
         webSocketServerManager = new WebSocketServerManager(configManager.getNetworkPort(), LOGGER);
