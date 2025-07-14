@@ -1,6 +1,5 @@
 package com.etarruella;
 
-import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.etarruella.config.ConfigManager;
