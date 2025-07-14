@@ -13,12 +13,14 @@ public class KAPI extends JavaPlugin {
 
     private final Logger LOGGER =  Logger.getLogger("KAPI");
 
+    private ConfigManager configManager;
     private WebSocketServerManager webSocketServerManager;
+    private GameEventWebSocketServer gameEventWebSocketServer;
 
     @Override
     public void onEnable() {
         // Load config
-        ConfigManager configManager = new ConfigManager(this);
+        configManager = new ConfigManager(this);
         configManager.loadConfig();
 
         // Load WebSocketServer
@@ -26,7 +28,7 @@ public class KAPI extends JavaPlugin {
         webSocketServerManager.start();
 
         // Load GameEventWebSocketServer
-        GameEventWebSocketServer gameEventWebSocketServer = new GameEventWebSocketServer(
+        gameEventWebSocketServer = new GameEventWebSocketServer(
                 InetSocketAddress.createUnresolved(configManager.getNetworkHost(), configManager.getNetworkPort()),
                 webSocketServerManager);
     }
@@ -34,6 +36,19 @@ public class KAPI extends JavaPlugin {
     @Override
     public void onDisable() {
         webSocketServerManager.stop();
+    }
+
+    // Getters
+    public ConfigManager getConfigManager() {
+        return configManager;
+    }
+
+    public WebSocketServerManager getWebSocketServerManager() {
+        return webSocketServerManager;
+    }
+
+    public GameEventWebSocketServer getGameEventWebSocketServer() {
+        return gameEventWebSocketServer;
     }
 
 }
