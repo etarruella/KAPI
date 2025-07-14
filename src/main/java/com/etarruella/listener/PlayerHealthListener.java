@@ -1,6 +1,10 @@
 package com.etarruella.listener;
 
 import com.etarruella.event.PlayerHealthChangeEvent;
+
+import network.EventDispatcher;
+import payload.PlayerHealthChangePayload;
+
 import org.bukkit.Bukkit;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
@@ -42,14 +46,20 @@ public class PlayerHealthListener implements Listener {
 
     @EventHandler
     public void onPlayerHealthChange(PlayerHealthChangeEvent event) {
-        Player player = event.getPlayer();
-        double change = event.getHealthChange();
-
         /* TODO: Implementar lógica de envío por WebSocket
          * 
          * 1. Create the event payload
          * 2. Then, call event dispatcher, send the payload
          */
 
+        PlayerHealthChangePayload payload = new PlayerHealthChangePayload(
+                "PlayerHealthChangeEvent", 
+                event.getPlayer().getUniqueId(), 
+                event.getOldHealth(), 
+                event.getNewHealth()
+            );
+
+        KAPI.getPlugin().getEventDispatcher().dispatch("PlayerHealthChangeEvent", payload);
     }
+    
 }
