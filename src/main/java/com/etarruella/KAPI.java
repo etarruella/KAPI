@@ -1,5 +1,6 @@
 package com.etarruella;
 
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.etarruella.config.ConfigManager;
@@ -11,7 +12,7 @@ import java.util.logging.Logger;
 
 public class KAPI extends JavaPlugin {
 
-    private final static Plugin KAPI;
+    private static KAPI KAPI;
 
     private final Logger LOGGER =  Logger.getLogger("KAPI");
 
@@ -19,7 +20,7 @@ public class KAPI extends JavaPlugin {
     private WebSocketServerManager webSocketServerManager;
     private GameEventWebSocketServer gameEventWebSocketServer;
 
-    public static Plugin getPlugin() {
+    public static KAPI getPlugin() {
         return KAPI;
     }
 
