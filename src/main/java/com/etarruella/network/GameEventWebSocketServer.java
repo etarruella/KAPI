@@ -15,6 +15,7 @@ public class GameEventWebSocketServer extends WebSocketServer {
     private final Set<WebSocket> connections = Collections.synchronizedSet(new HashSet<>());
     private final WebSocketServerManager manager;
     private final SubscriptionManager subscriptionManager = new SubscriptionManager();
+    private final EventDispatcher eventDispatcher = new EventDispatcher(subscriptionManager);
     private final Logger logger;
 
     public GameEventWebSocketServer(InetSocketAddress address, WebSocketServerManager manager) {
@@ -60,5 +61,9 @@ public class GameEventWebSocketServer extends WebSocketServer {
                 conn.send(message);
             }
         }
+    }
+
+    public EventDispatcher getEventDispatcher() {
+        return eventDispatcher;
     }
 }
