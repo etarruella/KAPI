@@ -1,0 +1,19 @@
+{
+  "name": "Paper Plugin Dev (Gradle)",
+  "image": "mcr.microsoft.com/devcontainers/java:21",
+  "features": {
+    "ghcr.io/devcontainers-contrib/features/gradle:2": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack",
+        "redhat.java",
+        "gabrielbb.vscode-lombok",
+        "vscjava.vscode-gradle",
+        "sonarsource.sonarlint-vscode"
+      ]
+    }
+  },
+  "postCreateCommand": "./gradlew build"
+}
