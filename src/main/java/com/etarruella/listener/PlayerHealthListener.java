@@ -44,8 +44,6 @@ public class PlayerHealthListener implements Listener {
     public void onPlayerHealthChange(PlayerHealthChangeEvent event) {
         Player player = event.getPlayer();
         double change = event.getHealthChange();
-        String sign = change > 0 ? "+" : "";
-        player.sendMessage("Vida " + sign + ": " + event.getNewHealth());
 
         /* TODO: Implementar lógica de envío por WebSocket
          * 
