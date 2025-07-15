@@ -39,15 +39,9 @@ public class SubscriptionManager {
 
     private void handleAction(WebSocket conn, String action, String topic) {
         switch (action) {
-            case "subscribe":
-                subscribe(conn, topic);
-                break;
-            case "unsubscribe":
-                unsubscribe(conn, topic);
-                break;
-            default:
-                logger.warning("Unknown action '" + action + "' from " + conn.getRemoteSocketAddress());
-                break;
+            case "subscribe" -> subscribe(conn, topic);
+            case "unsubscribe" -> unsubscribe(conn, topic);
+            default -> logger.warning("Unknown action '" + action + "' from " + conn.getRemoteSocketAddress());
         }
     }
 
