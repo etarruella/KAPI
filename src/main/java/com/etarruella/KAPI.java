@@ -43,9 +43,7 @@ public class KAPI extends JavaPlugin {
         webSocketServerManager.start();
 
         // Load GameEventWebSocketServer
-        gameEventWebSocketServer = new GameEventWebSocketServer(
-                InetSocketAddress.createUnresolved(configManager.getNetworkHost(), configManager.getNetworkPort()),
-                webSocketServerManager);
+        gameEventWebSocketServer = (GameEventWebSocketServer) webSocketServerManager.getServer();
     }
 
     @Override
