@@ -48,6 +48,7 @@ public class SubscriptionManager {
     public void subscribe(WebSocket conn, String topic) {
         subscriptions.computeIfAbsent(conn, k -> new CopyOnWriteArraySet<>()).add(topic);
         logger.info("Subscribed " + conn.getRemoteSocketAddress() + " to topic '" + topic + "'");
+        conn.send("Successfully subscribed to topic '" + topic + "'");
     }
 
     public void unsubscribe(WebSocket conn, String topic) {
