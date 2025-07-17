@@ -26,8 +26,17 @@ public class WebSocketServerManager {
         executor.execute(() -> {
             server = new GameEventWebSocketServer(new InetSocketAddress(port), this);
             server.start();
-            logger.info("WebSocket server started on port " + port);
         });
+
+        try {
+            if (executor.awaitTermination(10, TimeUnit.SECONDS)){
+                logger.info("WebSocket server started on port " + port);
+            } else {
+                logger.info("WebSocket server timed out on start...");
+            }
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void stop() {
@@ -49,6 +58,10 @@ public class WebSocketServerManager {
 
     public Logger getLogger() {
         return logger;
+    }
+
+    public WebSocketServer getServer() {
+        return server;
     }
 
 }
