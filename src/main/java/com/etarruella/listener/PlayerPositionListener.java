@@ -2,7 +2,6 @@ package com.etarruella.listener;
 
 import com.etarruella.KAPI;
 import com.etarruella.event.PlayerPositionChangeEvent;
-import com.etarruella.payload.PlayerHealthChangePayload;
 import com.etarruella.payload.PlayerPositionChangePayload;
 
 import org.bukkit.Bukkit;
