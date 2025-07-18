@@ -64,4 +64,8 @@ public class KAPI extends JavaPlugin {
         return gameEventWebSocketServer;
     }
 
+    public Logger getLogger() {
+        return LOGGER;
+    }
+
 }
