@@ -16,14 +16,36 @@ public class PlayerHealthChangePayload {
         this.newHealth = newHealth;
     }
 
-    public String getEvent() { return event; }
-    public String getPlayerUUID() { return playerUUID.toString(); }
-    public double getOldHealth() { return oldHealth; }
-    public double getNewHealth() { return newHealth; }
+    public String getEvent() {
+        return event;
+    }
 
-    public void setEvent(String event) { this.event = event; }
-    public void setPlayerUUID(UUID playerUUID) { this.playerUUID = playerUUID; }
-    public void setOldHealth(double oldHealth) { this.oldHealth = oldHealth; }
-    public void setNewHealth(double newHealth) { this.newHealth = newHealth; }
+    public String getPlayerUUID() {
+        return playerUUID.toString();
+    }
+
+    public double getOldHealth() {
+        return oldHealth;
+    }
+
+    public double getNewHealth() {
+        return newHealth;
+    }
+
+    public void setEvent(String event) {
+        this.event = event;
+    }
+
+    public void setPlayerUUID(UUID playerUUID) {
+        this.playerUUID = playerUUID;
+    }
+
+    public void setOldHealth(double oldHealth) {
+        this.oldHealth = oldHealth;
+    }
+
+    public void setNewHealth(double newHealth) {
+        this.newHealth = newHealth;
+    }
 
 }
