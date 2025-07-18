@@ -6,6 +6,7 @@ import com.etarruella.network.EventDispatcher;
 import com.etarruella.payload.PlayerHealthChangePayload;
 
 import org.bukkit.Bukkit;
+import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -37,7 +38,7 @@ public class PlayerHealthListener implements Listener {
             Player player = (Player) entity;
             double oldHealth = entity.getHealth();
             double amountHealed = event.getAmount();
-            double newHealth = Math.min(oldHealth + amountHealed, entity.getMaxHealth());
+            double newHealth = Math.min(oldHealth + amountHealed, entity.getAttribute(Attribute.MAX_HEALTH).getValue());
 
             PlayerHealthChangeEvent healthChangeEvent = new PlayerHealthChangeEvent(player, oldHealth, amountHealed, newHealth);
             Bukkit.getPluginManager().callEvent(healthChangeEvent);
