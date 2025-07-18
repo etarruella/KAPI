@@ -2,7 +2,6 @@ package com.etarruella.listener;
 
 import com.etarruella.KAPI;
 import com.etarruella.event.PlayerHealthChangeEvent;
-import com.etarruella.network.EventDispatcher;
 import com.etarruella.payload.PlayerHealthChangePayload;
 
 import org.bukkit.Bukkit;

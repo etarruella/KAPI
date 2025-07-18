@@ -8,7 +8,6 @@ import com.etarruella.config.ConfigManager;
 import com.etarruella.network.GameEventWebSocketServer;
 import com.etarruella.network.WebSocketServerManager;
 
-import java.net.InetSocketAddress;
 import java.util.logging.Logger;
 
 public class KAPI extends JavaPlugin {
