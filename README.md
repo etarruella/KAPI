@@ -28,12 +28,12 @@ KAPI is a lightweight and efficient Minecraft plugin + bridge system that allows
 
 2. Run your Paper server with the plugin:
 
-   > [!NOTE]  
-   > This way of running the server is recommended for debugging only.
-
    ```bash
    ./gradlew runServer
    ```
+
+> [!NOTE]  
+> This way of running the server is recommended for debugging only.
 
 3. Connect your bridge or frontend to subscribe to player events!
 
