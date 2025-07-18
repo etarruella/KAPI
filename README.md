@@ -1,6 +1,6 @@
-# KAPI 🎮✨
+# KAPI
 
-A **K**-powered **API** for Minecraft servers — real-time player data streaming with event-driven architecture! 🚀🔥
+A real-time, event-driven API for Minecraft servers, built on PaperMC, designed to stream live player data efficiently and reliably.
 
 ## 🚀 What is KAPI?
 
@@ -28,6 +28,9 @@ KAPI is a lightweight and efficient Minecraft plugin + bridge system that allows
 
 2. Run your Paper server with the plugin:
 
+   > [!NOTE]  
+   > This way of running the server is recommended for debugging only.
+
    ```bash
    ./gradlew runServer
    ```
@@ -44,20 +47,16 @@ KAPI is a lightweight and efficient Minecraft plugin + bridge system that allows
 
 ## 🤝 Contributing
 
-Feel free to open issues or PRs! Let’s make Minecraft integrations smoother together! 💪🐝
+Feel free to open issues or PRs! Let’s make Minecraft integrations smoother together! 💪
 
 
 ## 📄 License
 
-The Unlicense — see `LICENSE` file for details 📜
+The Unlicense — see `LICENSE` file for details
 
 ## 👥 Credits
 
 - 💡 **Main idea**: 
-   - Erik Tarruella
-   - Víctor De Lomas
-   - Pol Prat
-- 🔧 **Backend development**: 
-   - Erik Tarruella
-   - Víctor De Lomas
-
+   - [Erik Tarruella](https://github.com/etarruella)
+   - [Víctor De Lomas](https://github.com/victordlp8)
+   - [Pol Prat](https://github.com/Praxedes33)
