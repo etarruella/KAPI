@@ -1,6 +1,10 @@
 package com.etarruella.listener;
 
+import com.etarruella.KAPI;
 import com.etarruella.event.PlayerPositionChangeEvent;
+import com.etarruella.payload.PlayerHealthChangePayload;
+import com.etarruella.payload.PlayerPositionChangePayload;
+
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -30,14 +34,16 @@ public class PlayerPositionListener implements Listener {
 
     @EventHandler
     public void onPlayerPositionChange(PlayerPositionChangeEvent event) {
-        // Aquí conectarías con el WebSocket para enviar la actualización
-        // Código pendiente por implementar
+        PlayerPositionChangePayload payload = new PlayerPositionChangePayload(
+                "PlayerPostitionChangeEvent", 
+                event.getPlayer().getUniqueId(),
+                event.getNewPosition()
+            );
 
-        // Ejemplo:
-        // webSocketManager.sendPositionUpdate(event.getPlayer().getUniqueId(),
-        // event.getNewPosition());
-
-        // TODO: Implementar lógica de envío por WebSocket
+        KAPI.getPlugin().getGameEventWebSocketServer().getEventDispatcher().dispatch(
+                "PlayerPostitionChangeEvent",
+                payload
+            );
     }
 
 }
