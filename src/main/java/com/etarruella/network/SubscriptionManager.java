@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 
 public class SubscriptionManager {
 
-    private static final Logger logger = Logger.getLogger(SubscriptionManager.class.getName());
+    private static final Logger logger = KAPI.getPlugin().getLogger();
 
     private final Map<WebSocket, Set<String>> subscriptions = new ConcurrentHashMap<>();
     private final ObjectMapper mapper = new ObjectMapper();

@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 
 public class EventDispatcher {
 
-    private static final Logger logger = Logger.getLogger(EventDispatcher.class.getName());
+    private static final Logger logger = KAPI.getPlugin().getLogger();
 
     private final SubscriptionManager subscriptionManager;
     private final ObjectMapper mapper = new ObjectMapper();
