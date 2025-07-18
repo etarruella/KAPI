@@ -33,6 +33,7 @@ public class WebSocketServerManager {
                 logger.info("WebSocket server started on port " + port);
             } else {
                 logger.info("WebSocket server timed out on start...");
+                // TODO: call KAPI, shutdown plugin
             }
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
