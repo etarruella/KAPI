@@ -46,12 +46,6 @@ public class PlayerHealthListener implements Listener {
 
     @EventHandler
     public void onPlayerHealthChange(PlayerHealthChangeEvent event) {
-        /* TODO: Implementar lógica de envío por WebSocket
-         * 
-         * 1. Create the event payload
-         * 2. Then, call event dispatcher, send the payload
-         */
-
         PlayerHealthChangePayload payload = new PlayerHealthChangePayload(
                 "PlayerHealthChangeEvent", 
                 event.getPlayer().getUniqueId(),
