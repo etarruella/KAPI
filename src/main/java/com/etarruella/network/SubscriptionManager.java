@@ -1,5 +1,7 @@
 package com.etarruella.network;
 
+import com.etarruella.KAPI;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.java_websocket.WebSocket;
 
