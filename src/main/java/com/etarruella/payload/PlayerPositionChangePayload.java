@@ -7,12 +7,14 @@ public class PlayerPositionChangePayload {
 
     private String event;
     private UUID playerUUID;
-    private Location newLocation;
+    private int x, y, z;
 
     public PlayerPositionChangePayload(String event, UUID playerUUID, Location newLocation) {
         this.event = event;
         this.playerUUID = playerUUID;
-        this.newLocation = newLocation;
+        this.x = newLocation.getBlockX();
+        this.y = newLocation.getBlockY();
+        this.z = newLocation.getBlockZ();
     }
 
     public String getEvent() {
@@ -31,11 +33,11 @@ public class PlayerPositionChangePayload {
         this.playerUUID = playerUUID;
     }
 
-    public Location getNewLocation() {
-        return newLocation;
-    }
+    public void setX(int x) {this.x = x;}
+    public void setY(int y) {this.y = y;}
+    public void setZ(int z) {this.z = z;}
 
-    public void setNewLocation(Location newLocation) {
-        this.newLocation = newLocation;
-    }
+    public int getX() {return x;}
+    public int getY() {return y;}
+    public int getZ() {return z;}
 }
