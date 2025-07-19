@@ -13,20 +13,11 @@ import org.bukkit.event.player.PlayerMoveEvent;
 
 public class PlayerPositionListener implements Listener {
 
-    private boolean hasChangedBlock(Location from, Location to) {
-        return from.getBlockX() != to.getBlockX() ||
-                from.getBlockY() != to.getBlockY() ||
-                from.getBlockZ() != to.getBlockZ();
-    }
-
     @EventHandler
     public void onPlayerMove(PlayerMoveEvent event) {
-        Location from = event.getFrom();
-        Location to = event.getTo();
-
-        if (hasChangedBlock(from, to)) {
+        if (event.hasExplicitlyChangedBlock()) {
             Player player = event.getPlayer();
-            PlayerPositionChangeEvent customEvent = new PlayerPositionChangeEvent(player, to);
+            PlayerPositionChangeEvent customEvent = new PlayerPositionChangeEvent(player, event.getTo());
             Bukkit.getPluginManager().callEvent(customEvent);
         }
     }
@@ -34,13 +25,13 @@ public class PlayerPositionListener implements Listener {
     @EventHandler
     public void onPlayerPositionChange(PlayerPositionChangeEvent event) {
         PlayerPositionChangePayload payload = new PlayerPositionChangePayload(
-                "PlayerPostitionChangeEvent", 
+                "PlayerPositionChangeEvent",
                 event.getPlayer().getUniqueId(),
                 event.getNewPosition()
             );
 
         KAPI.getPlugin().getGameEventWebSocketServer().getEventDispatcher().dispatch(
-                "PlayerPostitionChangeEvent",
+                "PlayerPositionChangeEvent",
                 payload
             );
     }
