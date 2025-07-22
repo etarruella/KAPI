@@ -5,8 +5,8 @@ import com.etarruella.listener.PlayerPositionListener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.etarruella.config.ConfigManager;
-import com.etarruella.network.GameEventWebSocketServer;
-import com.etarruella.network.WebSocketServerManager;
+import com.etarruella.network.server.GameEventWebSocketServer;
+import com.etarruella.network.server.WebSocketServerManager;
 
 import java.util.logging.Logger;
 

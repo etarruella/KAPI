@@ -1,4 +1,4 @@
-package com.etarruella.network;
+package com.etarruella.network.server;
 
 import com.etarruella.KAPI;
 import org.java_websocket.server.WebSocketServer;

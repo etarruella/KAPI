@@ -1,8 +1,11 @@
-package com.etarruella.network;
+package com.etarruella.network.server;
 
 import org.java_websocket.WebSocket;
 import org.java_websocket.handshake.ClientHandshake;
 import org.java_websocket.server.WebSocketServer;
+
+import com.etarruella.network.EventDispatcher;
+import com.etarruella.network.SubscriptionManager;
 
 import java.net.InetSocketAddress;
 import java.util.Collections;

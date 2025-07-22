@@ -1,4 +1,4 @@
-package com.etarruella.payload;
+package com.etarruella.network.payload;
 
 import java.util.UUID;
 import org.bukkit.Location;

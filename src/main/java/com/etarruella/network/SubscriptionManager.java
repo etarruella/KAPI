@@ -1,7 +1,8 @@
 package com.etarruella.network;
 
 import com.etarruella.KAPI;
-
+import com.etarruella.network.messages.PlayerEventMessage;
+import com.etarruella.network.messages.ServerEventMessage;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.java_websocket.WebSocket;
 

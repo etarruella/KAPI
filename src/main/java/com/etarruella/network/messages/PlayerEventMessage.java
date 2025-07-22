@@ -1,4 +1,4 @@
-package com.etarruella.network;
+package com.etarruella.network.messages;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
